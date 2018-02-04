@@ -1,1 +1,7 @@
-# otus-java-2018-01-dementev
+Курс "Разработчик Java" в OTUS
+Группа 2018-01
+
+Студент
+Антон Дементьев
+
+antdementev@gmail.com
