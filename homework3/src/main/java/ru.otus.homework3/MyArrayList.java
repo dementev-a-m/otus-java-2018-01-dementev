@@ -45,7 +45,7 @@ public class MyArrayList<E> implements List<E> {
     }
 
     public Iterator<E> iterator() {
-        return null;
+        return listIterator();
     }
 
     public Object[] toArray() {
@@ -56,7 +56,7 @@ public class MyArrayList<E> implements List<E> {
 
     public <T> T[] toArray(T[] a) {
 
-        return null;
+        throw new  RuntimeException();
     }
 
     public boolean add(E e) {
@@ -71,16 +71,16 @@ public class MyArrayList<E> implements List<E> {
     }
 
     public boolean remove(Object o) {
-        return false;
+        throw new  RuntimeException();
     }
 
     public boolean containsAll(Collection<?> c) {
-        return false;
+        throw new  RuntimeException();
     }
 
     public boolean addAll(Collection<? extends E> c) {
         Object[] a = c.toArray();
-        int numNew = a.length ;
+        int numNew = a.length;
         int sizeNew = size + numNew;
         if (sizeNew > (capacity - size)) {
             Object[] b = new Object[size];
@@ -95,15 +95,15 @@ public class MyArrayList<E> implements List<E> {
 
 
     public boolean addAll(int index, Collection<? extends E> c) {
-        return false;
+        throw new  RuntimeException();
     }
 
     public boolean removeAll(Collection<?> c) {
-        return false;
+        throw new  RuntimeException();
     }
 
     public boolean retainAll(Collection<?> c) {
-        return false;
+        throw new  RuntimeException();
     }
 
     public void clear() {
@@ -180,14 +180,19 @@ public class MyArrayList<E> implements List<E> {
     }
 
     public ListIterator<E> listIterator() {
-        return null;
+        return new MyListIterator<>(this, 0);
     }
 
     public ListIterator<E> listIterator(int index) {
-        return null;
+        throw new  RuntimeException();
+
     }
 
     public List<E> subList(int fromIndex, int toIndex) {
-        return null;
+        throw new  RuntimeException();
+    }
+
+    Object[] getArray() {
+        return array;
     }
 }

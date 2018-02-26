@@ -25,20 +25,21 @@ public class Main {
             System.out.print(list.get(i) + " ");
 
         Collections.copy(list, list1);
-//        list.addAll(list1);
+
         System.out.println();
-        for (int i = 0; i < 40; i++)
-            System.out.print(list.get(i) + " ");
-
+        for (Integer integer : list)
+            System.out.print(integer + " ");
+        System.out.println();
+        Collections.sort(list);
+        for (Integer integer : list)
+            System.out.print(integer + " ");
         System.out.println("\nУдаление");
-
+        list.addAll(list1);
         for (int i = 39; i >= 0; i--)
             System.out.print(list.remove(i) + " ");
         System.out.println("\nlist.size(): " + list.size());
 
-
     }
-
 
 }
 
