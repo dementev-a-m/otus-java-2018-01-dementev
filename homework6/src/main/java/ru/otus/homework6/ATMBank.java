@@ -13,4 +13,6 @@ public interface ATMBank {
 
     int getCountNote(Note note);
 
+    void reestablish();
+
 }

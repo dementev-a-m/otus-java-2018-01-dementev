@@ -8,7 +8,9 @@ import java.util.Map;
  */
 public class ATMImpl implements ATMClient, ATMBank {
     private Account account = new AccountImpl();
-
+    private Account accountBackUp;
+    public ATMImpl() {
+    }
 
     @Override
     public void refillCash(Map<Note, Integer> money) {
@@ -35,6 +37,7 @@ public class ATMImpl implements ATMClient, ATMBank {
     public void addMoney(Map<Note, Integer> money) {
         for (Map.Entry<Note, Integer> entry : money.entrySet())
             account.put(entry.getKey(), entry.getValue());
+        accountBackUp = new AccountImpl(account);
         System.out.println("В банокмат загруженны новые кассеты ! ");
     }
 
@@ -53,6 +56,11 @@ public class ATMImpl implements ATMClient, ATMBank {
         Integer number = account.get(note);
         System.out.println("Купюр номиналом " + note.getNote() + " осталось " + number);
         return number;
+    }
+
+    @Override
+    public void reestablish() {
+        account = new AccountImpl(accountBackUp);
     }
 
     private int countSum(Map<Note, Integer> money) {

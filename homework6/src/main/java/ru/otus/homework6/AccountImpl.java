@@ -16,6 +16,12 @@ public class AccountImpl implements Account {
             account.put(note, 0);
     }
 
+    AccountImpl(Account account) {
+        this.account = new HashMap<>();
+        for (Note note : Note.values())
+            this.account.put(note, account.get(note));
+    }
+
     public void put(Note key, Integer value) {
         account.put(key, value);
     }
